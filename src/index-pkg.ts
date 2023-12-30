@@ -1,3 +1,3 @@
-import Sheet from "./components/sheet.vue";
+import ASheet from "./components/sheet.vue";
 
-export { Sheet };
+export { ASheet };

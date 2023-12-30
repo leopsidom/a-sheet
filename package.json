@@ -1,8 +1,7 @@
 {
   "name": "a-sheet",
   "repository": "https://github.com/leopsidom/a-sheet.git",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "files": [
     "dist"
@@ -14,9 +13,11 @@
       "require": "./dist/a-sheet.umd.cjs"
     }
   },
+  "types": "dist/types/components/sheet.vue.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
+    "release": "vite build --mode lib && vue-tsc --declaration --skipLibCheck --emitDeclarationOnly -p ./tsconfig-build.json && npm publish",
     "preview": "vite preview"
   },
   "dependencies": {

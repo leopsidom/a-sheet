@@ -12,5 +12,8 @@ export default defineConfig({
       entry: resolve(__dirname, "src/index-pkg.ts"),
       name: "ASheet",
     },
+    rollupOptions: {
+      external: ["vue"],
+    },
   },
 });
