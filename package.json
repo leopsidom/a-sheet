@@ -1,12 +1,13 @@
 {
   "name": "a-sheet",
   "repository": "https://github.com/leopsidom/a-sheet.git",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "dist/a-sheet.umd.js",
+  "main": "./dist/a-sheet.umd.js",
+  "module": "./dist/a-sheet.js",
   "exports": {
     ".": {
       "import": "./dist/a-sheet.js",
@@ -14,7 +15,7 @@
     },
     "./style.css": "./dist/style.css"
   },
-  "types": "./dist/types/components/sheet.vue.d.ts",
+  "types": "./dist/types/index-pkg.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
