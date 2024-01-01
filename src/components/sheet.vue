@@ -23,7 +23,7 @@
           border-b-solid
           box-border
         "
-        :class="size"
+        :style="size"
       />
       <div class="flex-col w-fit">
         <div v-for="(levelColumns, level) in columns" :key="level" class="flex">
@@ -39,11 +39,11 @@
               border-b-solid
               box-border
               w-20
-              h-5
               px-2
               py-px
               overflow-hidden
             "
+            :style="{ height: COLUMN_HEIGHT_IN_REM + 'rem' }"
           >
             {{ val }}
           </div>
@@ -62,7 +62,6 @@
     >
       <div
         class="
-          w-5
           flex
           overflow-hidden
           box-border
@@ -77,6 +76,7 @@
         "
         v-for="(levelIndex, level) in index[rowIndex]"
         :key="level"
+        :style="{ width: INDEX_WIDTH_IN_REM + 'rem' }"
       >
         {{ levelIndex }}
       </div>
@@ -113,7 +113,8 @@ const props =
     index: IndexType;
   }>();
 
-const widths = ref<number[]>([]);
+const INDEX_WIDTH_IN_REM = 1.5;
+const COLUMN_HEIGHT_IN_REM = 1.5;
 
 function normalizeIndex(
   index: IndexType,
@@ -144,9 +145,10 @@ function normalizeIndex(
 const columns = computed(() => normalizeIndex(props.columns, false));
 const index = computed(() => normalizeIndex(props.index, true));
 
-const size = computed(
-  () => `w-${index.value[0].length * 5} h-${columns.value.length * 5}`
-);
+const size = computed(() => ({
+  width: INDEX_WIDTH_IN_REM * index.value[0].length + "rem",
+  height: COLUMN_HEIGHT_IN_REM * columns.value.length + "rem",
+}));
 </script>
 
 <style scoped></style>
